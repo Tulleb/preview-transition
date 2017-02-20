@@ -159,9 +159,9 @@ extension PTTableViewController {
 
 // MARK: helpers
 
-extension PTTableViewController {
+public extension PTTableViewController {
   
-  fileprivate func parallaxOffsetDidChange(_ offset: CGFloat) {
+  public func parallaxOffsetDidChange(_ offset: CGFloat) {
     
     let _ = tableView.visibleCells
       .filter{$0 != currentCell }
