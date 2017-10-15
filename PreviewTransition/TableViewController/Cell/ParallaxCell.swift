@@ -50,7 +50,10 @@ open class ParallaxCell: UITableViewCell {
   
   /// parallax offset
   @IBInspectable open var difference: CGFloat = 100 // image parallax
-  
+	
+  /// image Y offset
+  @IBInspectable open var bgImageYOffset: CGFloat = 0
+	
   var bgImage: UIImageView?
   var parallaxTitle: UILabel?
   
@@ -169,9 +172,10 @@ public extension ParallaxCell {
    - parameter image: The image object which set to the backgroundImageView
    - parameter title: The text to be displayed in the Cell
    */
-  public func setImage(_ image: UIImage, title: String) {
+  public func setImage(_ image: UIImage, title: String, bgImageYOffset: CGFloat = 0) {
     bgImage?.image = image
     parallaxTitle?.text = title
+	self.bgImageYOffset = bgImageYOffset
   }
 }
 
@@ -190,7 +194,7 @@ extension ParallaxCell {
     var move : CGFloat = (deltaY / tableView.bounds.height)  * difference
     move = move / 2.0  - move
 
-    bgImageY.constant = move
+    bgImageY.constant = move + bgImageYOffset
   }
   
   func openCell(_ tableView: UITableView, duration: Double) {
