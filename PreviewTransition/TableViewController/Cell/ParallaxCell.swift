@@ -282,8 +282,14 @@ extension ParallaxCell {
       contentView.removeConstraints(currentConstrant)
       
       foregroundView >>>- {
+        var constant: CGFloat = 64
+        if #available(iOS 11.0, *) {
+            if let topPadding = UIApplication.shared.keyWindow?.safeAreaInsets.top {
+                constant += topPadding
+            }
+        }
         $0.attribute = .height
-        $0.constant = 64
+        $0.constant = constant
         $0.identifier = C.Constraints.height
         return
       }
