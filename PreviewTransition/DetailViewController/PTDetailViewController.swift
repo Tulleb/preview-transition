@@ -120,18 +120,24 @@ extension PTDetailViewController {
     view.addSubview(navBar)
     
     for attributes: NSLayoutAttribute in [.left, .right, .top] {
-      (view, navBar) >>>- {
-        $0.attribute = attributes
-        return
-      }
+        (view, navBar) >>>- {
+            $0.attribute = attributes
+            return
+        }
     }
     navBar >>>- {
-      $0.attribute = .height
-      $0.constant = 64
-      return
+        var constant: CGFloat = 64
+        if #available(iOS 11.0, *) {
+            if let topPadding = UIApplication.shared.keyWindow?.safeAreaInsets.top {
+                constant += topPadding
+            }
+        }
+        $0.attribute = .height
+        $0.constant = constant
+        return
     }
     
     return navBar
-  }
+    }
 
 }
