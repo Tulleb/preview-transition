@@ -51,7 +51,7 @@ extension Moving where Self: UIView {
         var position: CGFloat = 20
         if #available(iOS 11.0, *) {
             if let topPadding = UIApplication.shared.keyWindow?.safeAreaInsets.top {
-                position = topPadding
+                position = max(topPadding, position)
             }
         }
         toYPosition = position
