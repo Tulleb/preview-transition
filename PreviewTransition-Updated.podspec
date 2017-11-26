@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = 'PreviewTransition-Updated'
-  s.version      = '2.1.1'
+  s.version      = '2.1.2'
   s.summary      = 'Transition animation, originaly from Juri Vasylenko'
   s.license      = 'MIT'
   s.homepage     = 'https://github.com/Tulleb/preview-transition'
