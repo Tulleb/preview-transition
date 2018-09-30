@@ -87,7 +87,7 @@ extension DemoDetailViewController {
     screnShotImageView.blurViewValue(value: 5)
     controlView.insertSubview(screnShotImageView, at: 0)
     // added constraints
-    [NSLayoutAttribute.left, .right, .bottom, .top].forEach { attribute in
+    [NSLayoutConstraint.Attribute.left, .right, .bottom, .top].forEach { attribute in
       (self.controlView, screnShotImageView) >>>- {
         $0.attribute = attribute
         return
@@ -107,7 +107,7 @@ extension DemoDetailViewController {
     onView.addSubview(blueView)
     
     // add constraints
-    [NSLayoutAttribute.left, .right, .bottom, .top].forEach { attribute in
+    [NSLayoutConstraint.Attribute.left, .right, .bottom, .top].forEach { attribute in
       (onView, blueView) >>>- {
         $0.attribute = attribute
         return
