@@ -86,7 +86,7 @@ extension PTDetailViewController {
   
   fileprivate func createBackgroundImage(_ image: UIImage?) -> UIImageView {
     // add constraint closures
-    let addConstraint: (_ imageView: UIImageView, _ toView: UIView, _ attribute: NSLayoutAttribute) -> () = {
+    let addConstraint: (_ imageView: UIImageView, _ toView: UIView, _ attribute: NSLayoutConstraint.Attribute) -> () = {
       (imageView, toView, attribute) in
       let constraint = NSLayoutConstraint(item: imageView,
         attribute: attribute,
@@ -106,7 +106,7 @@ extension PTDetailViewController {
     view.insertSubview(imageView, at: 0)
     
     // added constraints
-    for attribute in [NSLayoutAttribute.leading, NSLayoutAttribute.trailing, NSLayoutAttribute.top, NSLayoutAttribute.bottom] {
+    for attribute in [NSLayoutConstraint.Attribute.leading, NSLayoutConstraint.Attribute.trailing, NSLayoutConstraint.Attribute.top, NSLayoutConstraint.Attribute.bottom] {
       addConstraint(imageView, view, attribute)
     }
     
@@ -119,7 +119,7 @@ extension PTDetailViewController {
     navBar.translatesAutoresizingMaskIntoConstraints = false
     view.addSubview(navBar)
     
-    for attributes: NSLayoutAttribute in [.left, .right, .top] {
+    for attributes: NSLayoutConstraint.Attribute in [.left, .right, .top] {
         (view, navBar) >>>- {
             $0.attribute = attributes
             return
