@@ -8,4 +8,5 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = '9.0'
   s.source       = { :git => 'https://github.com/Tulleb/preview-transition.git', :tag => s.version.to_s }
   s.source_files  = 'PreviewTransition/**/*.swift'
+  s.swift_version = '4.2'
 end
